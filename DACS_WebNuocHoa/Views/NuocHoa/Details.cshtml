@@ -1,0 +1,42 @@
+﻿@model DACS_WebNuocHoa.Models.NuocHoa
+
+@{
+    ViewBag.Title = "Chi tiết sản phẩm";
+    Layout = "~/Views/Shared/_LayoutNuocHoaStore.cshtml";
+    var info = System.Globalization.CultureInfo.GetCultureInfo("vi-VN");
+}
+
+<div class="product-page">
+    <div class="gallery-sec">
+        <ul>
+            <li>
+                <img src="@Model.Hinh" data-sizes="auto" class="lazyautosizes ls-is-cached lazyloaded" data-src="@Model.Hinh" sizes="294px">
+            </li>
+            <li>
+                <img src="@Model.Hinh" data-sizes="auto" class="lazyautosizes ls-is-cached lazyloaded" data-src="@Model.Hinh" sizes="294px">
+            </li>
+            <li>
+                <img src="@Model.Hinh" data-sizes="auto" class="lazyautosizes ls-is-cached lazyloaded" data-src="@Model.Hinh" sizes="294px">
+            </li>
+        </ul>
+    </div>
+    <div class="product-des-sec"><h1>Chi tiết sản phẩm</h1><ul><li><p style="text-align:justify;">@Model.MoTa</p></li></ul></div><div class="product-view-info-sec">
+        <div>
+            <div class="product-view-detail"><div class="product-view-info"><h1 class="product-view-name">@Model.TenNH</h1><div class="product-view-price"><p class="current-price">@String.Format(info, "{0:N0} đ", Model.Gia)</p></div></div></div><div class="product-view-size size req" column="i2">
+                <p>Chọn</p>
+                <hr />
+            </div><div class="product-view-quantity">
+                <input type="text" id="quantity" name="quantity" value="1" min="1" max="5000" class="quantity-selector">
+            </div><div class="product-view-button">
+                <button class="add-btn" selid="2162879" psid="2162879" ck="0"><a href="/NuocHoa/BuyNowToCart/@Model.MaNH"><h2>Mua ngay</h2></button>
+                <button class="add-btn" selid="2162879" psid="2162879" ck="0"><a href="/NuocHoa/AddCart/@Model.MaNH"><h1>Thêm vào giỏ hàng</h1></a></button>
+            </div><ul class="product-view-guide">
+                <li href="#" data-toggle="modal" data-target="#modalReturn">
+                    <a>
+                        Chính sách đổi trả<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M7,24a1,1,0,0,1-.707-1.707l8.172-8.172a3,3,0,0,0,0-4.242L6.293,1.707A1,1,0,0,1,7.707.293l8.172,8.172a5.005,5.005,0,0,1,0,7.07L7.707,23.707A1,1,0,0,1,7,24Z"></path></svg>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

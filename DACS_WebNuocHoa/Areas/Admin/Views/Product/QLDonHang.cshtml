@@ -1,0 +1,61 @@
+﻿@model IEnumerable<DACS_WebNuocHoa.Models.DonHang>
+
+@{
+    ViewBag.Title = "QLDonHang";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout_admin.cshtml";
+    var info = System.Globalization.CultureInfo.GetCultureInfo("vi-VN");
+
+}
+<div class="card mb-4">
+    <div class="card-header">
+        <i class="fas fa-table me-1"></i>
+        DataTable Example
+    </div>
+    <div class="card-body">
+        <table id="datatablesSimple">
+            <thead>
+                <tr>
+                    <th>Mã Đơn Hàng</th>
+                    <th>User Id</th>
+                    <th>Tổng Tiền</th>
+                    <th>Ngày Đặt Hàng</th>
+                    <th>Xác Nhận</th>
+                    <th>Chức năng</th>
+                </tr>
+            </thead>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.MaDH)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.UserId)
+                        </td>
+                        <td>
+                            @String.Format(info, "{0:N0} đ", item.TongTien)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.NgayDatHang)
+                        </td>
+                        <td>
+                            @if (item.XacNhan)
+                            {
+                                <span style="color:green">True</span>
+                            }
+                            else
+                            {
+                                <span style="color:red">False</span>
+                            }
+                        </td>
+                        <td>
+                            @Html.ActionLink("Edit", "Edit", new { id = item.MaDH }) |
+                            @Html.ActionLink("Details", "Details", new { id = item.MaDH }) |
+                            @Html.ActionLink("Delete", "Delete", new { id = item.MaDH })
+                        </td>
+                    </tr>
+                }
+
+        </table>
+    </div>
+</div>

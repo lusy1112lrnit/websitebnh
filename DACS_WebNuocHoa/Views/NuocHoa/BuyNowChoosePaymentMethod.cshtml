@@ -1,0 +1,19 @@
+﻿
+@{
+    ViewBag.Title = "Mua ngay trang thanh toán";
+    Layout = "~/Views/Shared/_LayoutNuocHoaStore.cshtml";
+}
+
+<h2>Chọn hình thức thanh toán</h2>
+
+<form method="post" action="@Url.Action("BuyNowChoosePaymentMethod", "NuocHoa")">
+    <div>
+        <label for="paymentMethod">Hình thức thanh toán:</label>
+        <select name="paymentMethod" id="paymentMethod">
+            <option value="cod">Tiền mặt</option>
+            <option value="paypal">Paypal</option>
+        </select>
+    </div>
+
+    <input type="submit" value="Thanh toán" />
+</form>

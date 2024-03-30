@@ -1,0 +1,28 @@
+﻿@model IEnumerable<DACS_WebNuocHoa.Models.NuocHoa>
+
+@{
+    ViewBag.Title = "Trang Chủ Web Nước Hoa";
+    Layout = "~/Views/Shared/_LayoutNuocHoaStore.cshtml";
+}
+
+<h3 style="text-align: left">Sản Phẩm</h3>
+
+<div class="row">
+    @foreach (var item in Model)
+    {
+        <div class="product-item">
+            <div class="product-thumb">
+                <a href="/"><img src="@item.Hinh" data-sizes="auto" class="lazyautosizes lazyloaded" data-src="@item.Hinh" sizes="284px"></a>
+            </div>
+            <div class="product-detail">
+                <div class="product-info">
+                    <h6 class="product-name"><a href="/">@item.TenNH</a></h6>
+                    <div class="product-price">
+                        <p>@item.Gia <span>₫</span></p>
+                    </div>
+                </div>
+            </div>
+        </div>               
+    }
+</div>
+

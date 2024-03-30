@@ -1,0 +1,25 @@
+﻿@model DACS_WebNuocHoa.Models.SendMail
+@{
+    ViewBag.Title = "Gởi mail";
+    Layout = "~/Views/Shared/_LayoutNuocHoaStore.cshtml";
+}
+
+
+<fieldset>
+    <legend>
+        Nhập mail của Bạn vào để hoàn thành xác thực đơn hàng.
+    </legend>
+    @using (Html.BeginForm())
+    {
+        @Html.ValidationSummary()
+
+        <p>@Html.TextBoxFor(m => m.To)</p>
+
+        <input type="submit" value="Send" />
+    }
+    <br />
+    <span style="color:green; font-weight:bold;">@ViewBag.Message</span>
+    <br />
+    <a>Lưu ý: kiểm tra thư rác nếu không thấy nhé!</a>
+
+</fieldset>
